@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#f6a8c5" />
   <meta name="description" content="A tiny pink corner of the internet made by Arian for Fifi." />
   <title>hello fifi 🎀</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23ffeaf1'/%3E%3Cpath d='M32 32c-13-18-29-8-22 4 4 7 13 6 22 0 9 6 18 7 22 0 7-12-9-22-22-4Z' fill='%23d94d7d'/%3E%3Ccircle cx='32' cy='34' r='7' fill='%23f7a7c2'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
@@ -157,6 +158,22 @@
         <p>Pick an envelope. There may or may not be a tiny surprise inside.</p>
       </div>
       <div class="envelope-grid" id="envelopeGrid"></div>
+    </section>
+
+    <section class="section-shell guestbook-section" id="guestbook">
+      <div class="section-heading reveal">
+        <span class="section-kicker">a note from fifi</span>
+        <h2>leave a tiny <em>message</em> ♡</h2>
+        <p>Write something for your little corner. It stays saved on this device only.</p>
+      </div>
+      <form class="guestbook-card reveal" id="guestbookForm">
+        <label for="guestbookInput">your note</label>
+        <div class="guestbook-row">
+          <input id="guestbookInput" maxlength="120" placeholder="today feels like..." autocomplete="off" />
+          <button class="primary-button" type="submit">pin it <span>♡</span></button>
+        </div>
+        <p class="saved-note" id="savedNote" hidden></p>
+      </form>
     </section>
 
     <section class="section-shell silly-section" id="silly">

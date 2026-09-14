@@ -83,6 +83,36 @@ function sprinkle(count = 18, symbols = ["✦", "♡", "🎀", "✿"]) {
 renderAbout();
 renderMessages();
 
+const guestbookForm = $("#guestbookForm");
+const guestbookInput = $("#guestbookInput");
+const savedNote = $("#savedNote");
+function displaySavedNote(note) {
+  savedNote.textContent = note ? `“${note}” ♡` : "";
+  savedNote.hidden = !note;
+}
+try {
+  displaySavedNote(localStorage.getItem("fifi-note") || "");
+} catch (error) {
+  displaySavedNote("");
+}
+guestbookForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const note = guestbookInput.value.trim();
+  if (!note) {
+    showToast("write a tiny note first ♡");
+    guestbookInput.focus();
+    return;
+  }
+  displaySavedNote(note);
+  try {
+    localStorage.setItem("fifi-note", note);
+  } catch (error) {
+    // The note still appears for this visit when storage is unavailable.
+  }
+  guestbookInput.value = "";
+  showToast("your note is pinned 🎀");
+});
+
 function setTheme(nightMode) {
   document.body.classList.toggle("night-kitty", nightMode);
   document.documentElement.dataset.theme = nightMode ? "night" : "soft";
