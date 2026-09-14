@@ -45,6 +45,7 @@ const toast = $("#toast");
 const themeToggle = $("#themeToggle");
 let pinkMode = false;
 let chaosPresses = 0;
+let loveTypingTimer;
 
 setTimeout(() => loader.classList.add("done"), 1100);
 
@@ -191,6 +192,8 @@ document.querySelectorAll(".silly-button").forEach((button) => {
     document.querySelectorAll(".silly-button").forEach((item) => item.classList.remove("active"));
     button.classList.add("active");
     const panel = button.dataset.panel;
+    clearInterval(loveTypingTimer);
+    $("#sillyOutput").classList.remove("love-reveal");
     sillyText.textContent = panel === "compliment" ? randomFrom(compliments) : panel === "lore" ? randomFrom(lore) : randomFrom(arianSays);
     sillyText.animate([{ opacity: .2, transform: "translateY(8px)" }, { opacity: 1, transform: "translateY(0)" }], { duration: 330, easing: "ease-out" });
   });
@@ -199,12 +202,19 @@ document.querySelectorAll(".silly-button").forEach((button) => {
 $("#chaosButton").addEventListener("click", () => {
   chaosPresses += 1;
   if (chaosPresses >= 5) {
-    sillyText.textContent = "I love you so much fifi \uD83D\uDC97";
+    const loveMessage = "I love you so much fifi \uD83D\uDC97";
+    clearInterval(loveTypingTimer);
+    sillyText.textContent = "";
     $("#sillyOutput").classList.add("love-reveal");
     sprinkle(90, ["♡", "🎀", "✦", "✿"]);
     showToast("hidden message unlocked ♡");
     chaosPresses = 0;
-    setTimeout(() => $("#sillyOutput").classList.remove("love-reveal"), 4200);
+    let typedCharacters = 0;
+    loveTypingTimer = setInterval(() => {
+      sillyText.textContent = loveMessage.slice(0, typedCharacters);
+      typedCharacters += 1;
+      if (typedCharacters > loveMessage.length) clearInterval(loveTypingTimer);
+    }, 75);
     return;
   }
   sillyText.textContent = chaosPresses === 1 ? "WHY DID YOU PRESS IT" : chaosPrompts[chaosPresses - 2];
