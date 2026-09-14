@@ -85,3 +85,11 @@ h1, h2 { margin: 16px 0 0; font-family: "Playfair Display", serif; font-weight: 
 .kitty-section::before { content: "\2661  \2726  \2661"; }
 .kitty-card::after { content: "\2726"; }
 .hero-card::before { content: "\2661"; }
+.kitty-sky span:nth-child(6) { left: 34%; top: 42%; animation-delay: -4s; font-size: 1.5rem; }
+.kitty-sky span:nth-child(7) { left: 93%; top: 86%; animation-delay: -7s; }
+.kitty-sky span:nth-child(8) { left: 4%; top: 58%; animation-delay: -1s; }
+.kitty-sky span:nth-child(9) { left: 64%; top: 87%; animation-delay: -9s; }
+.kitty-sky span:nth-child(10) { left: 43%; top: 68%; animation-delay: -3s; }
+.love-reveal { animation: loveReveal .7s cubic-bezier(.2,.8,.2,1) both; }
+.love-reveal p { font-size: clamp(2.2rem, 5vw, 4rem); }
+@keyframes loveReveal { 0% { transform: scale(.96); box-shadow: 0 0 0 rgba(217,77,125,0); } 45% { transform: scale(1.02); box-shadow: 0 0 55px rgba(255, 132, 179, .55); } 100% { transform: scale(1); } }

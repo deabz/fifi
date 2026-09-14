@@ -31,6 +31,12 @@ const arianSays = [
   "thank you for being funny, expressive and wonderfully yourself.",
   "i made you a website. please respect the level of unnecessary effort here.",
 ];
+const chaosPrompts = [
+  "fifi... not again \uD83D\uDE2D",
+  "you were told not to press it ♡",
+  "the button is begging for mercy 🎀",
+  "this is becoming a pattern...",
+];
 
 const $ = (selector) => document.querySelector(selector);
 const loader = $("#loader");
@@ -38,6 +44,7 @@ const fallingLayer = $("#fallingLayer");
 const toast = $("#toast");
 const themeToggle = $("#themeToggle");
 let pinkMode = false;
+let chaosPresses = 0;
 
 setTimeout(() => loader.classList.add("done"), 1100);
 
@@ -190,11 +197,21 @@ document.querySelectorAll(".silly-button").forEach((button) => {
 });
 
 $("#chaosButton").addEventListener("click", () => {
-  sillyText.textContent = "WHY DID YOU PRESS IT 😭";
-  sprinkle(120, ["✦", "♡", "🎀", "✿"]);
+  chaosPresses += 1;
+  if (chaosPresses >= 5) {
+    sillyText.textContent = "I love you so much fifi \uD83D\uDC97";
+    $("#sillyOutput").classList.add("love-reveal");
+    sprinkle(90, ["♡", "🎀", "✦", "✿"]);
+    showToast("hidden message unlocked ♡");
+    chaosPresses = 0;
+    setTimeout(() => $("#sillyOutput").classList.remove("love-reveal"), 4200);
+    return;
+  }
+  sillyText.textContent = chaosPresses === 1 ? "WHY DID YOU PRESS IT \uD83D\uDE2D" : chaosPrompts[chaosPresses - 2];
+  $("#sillyOutput").classList.remove("love-reveal");
+  sprinkle(chaosPresses * 12, ["✦", "♡", "🎀", "✿"]);
   document.body.animate([{ filter: "saturate(1)" }, { filter: "saturate(1.65)" }, { filter: "saturate(1)" }], { duration: 2600, easing: "ease-in-out" });
-  showToast("chaos deployed successfully");
-  setTimeout(() => { sillyText.textContent = randomFrom(compliments); }, 3600);
+  showToast(`${chaosPresses}/5 chaos presses detected`);
 });
 
 const secretModal = $("#secretModal");
