@@ -84,7 +84,10 @@ renderMessages();
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    if (entry.isIntersecting) entry.target.classList.add("visible");
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      if (entry.target.classList.contains("kitty-card")) sprinkle(3, ["♡", "✦", "🎀"]);
+    }
   });
 }, { threshold: .13 });
 document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
@@ -147,6 +150,7 @@ $("#closeSecret").addEventListener("click", () => { secretModal.hidden = true; }
 secretModal.addEventListener("click", (event) => { if (event.target === secretModal) secretModal.hidden = true; });
 $("#oneMoreSecret").addEventListener("click", () => {
   $("#secretReveal").hidden = false;
+  $("#oneMoreSecret").textContent = "keep this forever ♡";
   sprinkle(70, ["✦", "🎀", "♡"]);
 });
 
@@ -165,32 +169,3 @@ document.addEventListener("pointermove", (event) => {
   clearTimeout(window.sparkleTimer);
   window.sparkleTimer = setTimeout(() => { sparkle.style.opacity = "0"; }, 160);
 });
-
-const audio = $("#audio");
-const player = $("#musicPlayer");
-const playButton = $("#playButton");
-const muteButton = $("#muteButton");
-audio.volume = .45;
-audio.addEventListener("error", () => {
-  playButton.disabled = true;
-  playButton.setAttribute("title", "Add a licensed copy of On the Square to the assets folder");
-});
-playButton.addEventListener("click", async () => {
-  if (audio.paused) {
-    await audio.play();
-    playButton.textContent = "Ⅱ";
-    playButton.setAttribute("aria-label", "Pause music");
-    player.classList.add("playing");
-  } else {
-    audio.pause();
-    playButton.textContent = "▶";
-    playButton.setAttribute("aria-label", "Play music");
-    player.classList.remove("playing");
-  }
-});
-muteButton.addEventListener("click", () => {
-  audio.muted = !audio.muted;
-  muteButton.textContent = audio.muted ? "×" : "⌁";
-  muteButton.setAttribute("aria-label", audio.muted ? "Unmute music" : "Mute music");
-});
-$("#volumeSlider").addEventListener("input", (event) => { audio.volume = event.target.value; });

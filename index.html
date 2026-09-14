@@ -45,6 +45,7 @@
       </div>
       <div class="hero-art reveal" aria-label="Decorative pink bow illustration">
         <div class="orb orb-one"></div><div class="orb orb-two"></div>
+        <div class="kitty-float kitty-float-one" aria-hidden="true"><span class="kitty-ear"></span><span class="kitty-ear"></span><span class="kitty-face">♡</span><span class="kitty-bow">🎀</span></div>
         <div class="hero-card">
           <div class="hero-card-top"><span>FI</span><span>♡</span></div>
           <div class="big-bow"><span></span><i></i><span></span></div>
@@ -66,6 +67,31 @@
       </div>
     </section>
 
+    <section class="kitty-section section-shell" id="kitty">
+      <div class="kitty-section-copy reveal">
+        <span class="section-kicker">a tiny kitty corner</span>
+        <h2>cute things for <em>fifi</em></h2>
+        <p>little animated friends, soft pink moments and a few surprises waiting as you scroll.</p>
+      </div>
+      <div class="kitty-grid">
+        <article class="kitty-card reveal">
+          <div class="kitty-mascot" aria-hidden="true"><span class="kitty-ear"></span><span class="kitty-ear"></span><span class="kitty-face">•ᴗ•</span><span class="kitty-bow">🎀</span></div>
+          <h3>soft kitty energy</h3>
+          <p>small, sweet and a little bit dramatic — the ideal vibe.</p>
+        </article>
+        <article class="kitty-card reveal">
+          <div class="kitty-mascot sleepy" aria-hidden="true"><span class="kitty-ear"></span><span class="kitty-ear"></span><span class="kitty-face">˘ᴗ˘</span><span class="kitty-bow">♡</span></div>
+          <h3>tiny comfort corner</h3>
+          <p>a gentle reminder to rest, hydrate and be nice to yourself.</p>
+        </article>
+        <article class="kitty-card reveal">
+          <div class="kitty-mascot happy" aria-hidden="true"><span class="kitty-ear"></span><span class="kitty-ear"></span><span class="kitty-face">^ᴗ^</span><span class="kitty-bow">✦</span></div>
+          <h3>sparkle delivery</h3>
+          <p>scroll slowly — the cute details are supposed to find you.</p>
+        </article>
+      </div>
+    </section>
+
     <section class="section-shell about-section" id="about">
       <div class="section-heading reveal">
         <span class="section-kicker">01 / the fifi file</span>
@@ -83,7 +109,7 @@
           <h2>fifi's <em>world</em> 🎀</h2>
           <p>Basically everything pink. As requested.</p>
           <div class="button-row">
-            <button class="secondary-button light-button" id="morePink">more pink <span>✦</span></button>
+            <button class="secondary-button pink-power-button" id="morePink">make it extra pink <span>✦</span></button>
             <button class="ghost-button" id="lessPink">okay that's enough</button>
           </div>
         </div>
@@ -100,6 +126,7 @@
             </div>
           </div>
           <div class="pink-cloud cloud-a"></div><div class="pink-cloud cloud-b"></div>
+          <div class="kitty-float stage-kitty" aria-hidden="true"><span class="kitty-ear"></span><span class="kitty-ear"></span><span class="kitty-face">♡</span><span class="kitty-bow">🎀</span></div>
         </div>
       </div>
     </section>
@@ -162,29 +189,15 @@
     </section>
   </main>
 
-  <aside class="music-player" id="musicPlayer" aria-label="Music player">
-    <div class="music-info">
-      <div class="music-vinyl" aria-hidden="true"><span>♪</span></div>
-      <div><span class="music-label">song for fifi</span><strong>On the Square</strong><small>Mac DeMarco · audio file not installed</small></div>
-    </div>
-    <div class="music-controls">
-      <button id="playButton" class="music-icon" aria-label="Play music" disabled>▶</button>
-      <button id="muteButton" class="music-icon" aria-label="Mute music">⌁</button>
-      <label class="volume-control" aria-label="Volume"><input id="volumeSlider" type="range" min="0" max="1" step="0.05" value="0.45" /></label>
-    </div>
-    <a class="music-link" href="https://www.youtube.com/results?search_query=Mac+DeMarco+On+the+Square" target="_blank" rel="noopener noreferrer">listen online ↗</a>
-    <div class="music-notes" id="musicNotes" aria-hidden="true">♪ ♫</div>
-    <audio id="audio" preload="none" loop src="assets/on-the-square-by-mac-demarco.mp3"></audio>
-  </aside>
-
   <div class="secret-modal" id="secretModal" role="dialog" aria-modal="true" aria-labelledby="secretTitle" hidden>
     <div class="secret-box">
       <button class="modal-close" id="closeSecret" aria-label="Close secret">×</button>
-      <span class="section-kicker">tiny hidden discovery</span>
-      <h2 id="secretTitle">you found the secret 🎀</h2>
-      <p>arian definitely didn't spend way too long making this</p>
-      <button class="primary-button" id="oneMoreSecret">one more secret <span>✦</span></button>
-      <p class="secret-reveal" id="secretReveal" hidden>this website is 87% pink, 12% sparkle, and 1% completely unnecessary but worth it.</p>
+      <div class="secret-kitty" aria-hidden="true"><span class="kitty-ear"></span><span class="kitty-ear"></span><span class="kitty-face">♡ᴗ♡</span><span class="kitty-bow">🎀</span></div>
+      <span class="section-kicker">a little note just for you</span>
+      <h2 id="secretTitle">you found the hidden kitty 🎀</h2>
+      <p>she has been keeping a tiny pink surprise safe until you came along.</p>
+      <button class="primary-button" id="oneMoreSecret">open the tiny note <span>♡</span></button>
+      <p class="secret-reveal" id="secretReveal" hidden>fifi, you make ordinary days feel brighter. this little corner is yours whenever you need a soft place to land. ♡</p>
     </div>
   </div>
 
