@@ -17,6 +17,13 @@ const compliments = [
   "you are very easy to root for. this is an official announcement.",
   "you bring excellent main-character energy to the most random situations.",
   "you are more memorable than you probably realise.",
+  "you make people feel welcome without even having to think about it.",
+  "you have a talent for turning tiny moments into funny stories.",
+  "you are the perfect mix of sweet, chaotic and impossible to forget.",
+  "your energy is basically a tiny sparkly surprise in human form.",
+  "you deserve every good thing that finds its way to you.",
+  "you are genuinely one of the easiest people to appreciate.",
+  "you make being yourself look wonderfully effortless.",
 ];
 const lore = [
   "fifi has never met a pink detail she could not improve.",
@@ -24,12 +31,26 @@ const lore = [
   "fifi can turn a normal conversation into a full episode.",
   "fifi lore is expanding faster than this website can document.",
   "scientists remain unable to measure the full power of fifi's personality.",
+  "fifi can detect a suspicious vibe from several miles away.",
+  "every fifi story somehow gets funnier with each retelling.",
+  "fifi's inner monologue probably has its own award-winning soundtrack.",
+  "the exact limits of fifi's silliness remain scientifically unconfirmed.",
+  "fifi makes even a simple reaction feel like a season finale.",
+  "somehow, fifi is both the plot and the unexpected plot twist.",
+  "the pink levels rise naturally whenever fifi enters the room.",
 ];
 const arianSays = [
   "i hope you know you're appreciated, even when i forget to say it properly.",
   "you are objectively one of the most fifi people to ever fifi.",
   "thank you for being funny, expressive and wonderfully yourself.",
   "i made you a website. please respect the level of unnecessary effort here.",
+  "you make my days better in ways you probably do not even notice.",
+  "i am very glad you are you. there is no replacement version.",
+  "you are someone i will always be grateful to have met.",
+  "this website is proof that i support your pink and silly agenda.",
+  "you deserve a reminder that you matter, so here it is: you really do.",
+  "i hope you keep the parts of yourself that make you laugh the loudest.",
+  "you are one of my favourite people to make little things for.",
 ];
 const chaosPrompts = [
   "DONT PRESS AGAIN FIFI",
@@ -44,6 +65,7 @@ let pinkMode = false;
 let chaosPresses = 0;
 let loveTypingTimer;
 let loveUnlocked = false;
+const lastSillyMessages = new Map();
 
 setTimeout(() => loader.classList.add("done"), 1100);
 
@@ -68,6 +90,13 @@ function renderMessages() {
 }
 
 function randomFrom(list) { return list[Math.floor(Math.random() * list.length)]; }
+function randomWithoutRepeat(list, key) {
+  const previous = lastSillyMessages.get(key);
+  const choices = list.length > 1 ? list.filter((item) => item !== previous) : list;
+  const message = randomFrom(choices);
+  lastSillyMessages.set(key, message);
+  return message;
+}
 function showToast(message) {
   toast.textContent = message;
   toast.classList.add("show");
@@ -194,7 +223,11 @@ document.querySelectorAll(".silly-button").forEach((button) => {
     $("#sillyOutput").classList.remove("love-reveal");
     chaosPresses = 0;
     loveUnlocked = false;
-    sillyText.textContent = panel === "compliment" ? randomFrom(compliments) : panel === "lore" ? randomFrom(lore) : randomFrom(arianSays);
+    sillyText.textContent = panel === "compliment"
+      ? randomWithoutRepeat(compliments, "compliment")
+      : panel === "lore"
+        ? randomWithoutRepeat(lore, "lore")
+        : randomWithoutRepeat(arianSays, "arian");
     sillyText.animate([{ opacity: .2, transform: "translateY(8px)" }, { opacity: 1, transform: "translateY(0)" }], { duration: 330, easing: "ease-out" });
   });
 });
