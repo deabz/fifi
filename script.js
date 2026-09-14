@@ -32,10 +32,7 @@ const arianSays = [
   "i made you a website. please respect the level of unnecessary effort here.",
 ];
 const chaosPrompts = [
-  "fifi... not again \uD83D\uDE2D",
-  "you were told not to press it ♡",
-  "don't press 5 times 🎀",
-  "this is becoming a pattern...",
+  "DONT PRESS AGAIN FIFI",
 ];
 
 const $ = (selector) => document.querySelector(selector);
@@ -46,6 +43,7 @@ const themeToggle = $("#themeToggle");
 let pinkMode = false;
 let chaosPresses = 0;
 let loveTypingTimer;
+let loveUnlocked = false;
 
 setTimeout(() => loader.classList.add("done"), 1100);
 
@@ -194,21 +192,24 @@ document.querySelectorAll(".silly-button").forEach((button) => {
     const panel = button.dataset.panel;
     clearInterval(loveTypingTimer);
     $("#sillyOutput").classList.remove("love-reveal");
+    chaosPresses = 0;
+    loveUnlocked = false;
     sillyText.textContent = panel === "compliment" ? randomFrom(compliments) : panel === "lore" ? randomFrom(lore) : randomFrom(arianSays);
     sillyText.animate([{ opacity: .2, transform: "translateY(8px)" }, { opacity: 1, transform: "translateY(0)" }], { duration: 330, easing: "ease-out" });
   });
 });
 
 $("#chaosButton").addEventListener("click", () => {
+  if (loveUnlocked) return;
   chaosPresses += 1;
-  if (chaosPresses >= 5) {
+  if (chaosPresses >= 3) {
     const loveMessage = "I love you so much fifi \uD83D\uDC97";
     clearInterval(loveTypingTimer);
     sillyText.textContent = "";
     $("#sillyOutput").classList.add("love-reveal");
     sprinkle(90, ["♡", "🎀", "✦", "✿"]);
     showToast("hidden message unlocked ♡");
-    chaosPresses = 0;
+    loveUnlocked = true;
     let typedCharacters = 0;
     loveTypingTimer = setInterval(() => {
       sillyText.textContent = loveMessage.slice(0, typedCharacters);
@@ -221,7 +222,7 @@ $("#chaosButton").addEventListener("click", () => {
   $("#sillyOutput").classList.remove("love-reveal");
   sprinkle(chaosPresses * 12, ["✦", "♡", "🎀", "✿"]);
   document.body.animate([{ filter: "saturate(1)" }, { filter: "saturate(1.65)" }, { filter: "saturate(1)" }], { duration: 2600, easing: "ease-in-out" });
-  showToast(`${chaosPresses}/5 chaos presses detected`);
+  showToast(`${chaosPresses}/3 chaos presses detected`);
 });
 
 const secretModal = $("#secretModal");
