@@ -34,7 +34,7 @@ const arianSays = [
 const chaosPrompts = [
   "fifi... not again \uD83D\uDE2D",
   "you were told not to press it ♡",
-  "the button is begging for mercy 🎀",
+  "don't press 5 times 🎀",
   "this is becoming a pattern...",
 ];
 
@@ -207,7 +207,7 @@ $("#chaosButton").addEventListener("click", () => {
     setTimeout(() => $("#sillyOutput").classList.remove("love-reveal"), 4200);
     return;
   }
-  sillyText.textContent = chaosPresses === 1 ? "WHY DID YOU PRESS IT \uD83D\uDE2D" : chaosPrompts[chaosPresses - 2];
+  sillyText.textContent = chaosPresses === 1 ? "WHY DID YOU PRESS IT" : chaosPrompts[chaosPresses - 2];
   $("#sillyOutput").classList.remove("love-reveal");
   sprinkle(chaosPresses * 12, ["✦", "♡", "🎀", "✿"]);
   document.body.animate([{ filter: "saturate(1)" }, { filter: "saturate(1.65)" }, { filter: "saturate(1)" }], { duration: 2600, easing: "ease-in-out" });
