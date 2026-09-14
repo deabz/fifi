@@ -38,7 +38,7 @@ const fallingLayer = $("#fallingLayer");
 const toast = $("#toast");
 let pinkMode = false;
 
-setTimeout(() => loader.classList.add("done"), 2500);
+setTimeout(() => loader.classList.add("done"), 1100);
 
 function renderAbout() {
   $("#aboutGrid").innerHTML = aboutFacts.map(([icon, title, text]) => `
@@ -144,12 +144,35 @@ $("#chaosButton").addEventListener("click", () => {
 });
 
 const secretModal = $("#secretModal");
-$("#secretBow").addEventListener("click", () => {
+const secretBow = $("#secretBow");
+const closeSecret = $("#closeSecret");
+function closeSecretModal() {
+  secretModal.hidden = true;
+  secretBow.focus();
+}
+secretBow.addEventListener("click", () => {
   secretModal.hidden = false;
   $("#secretReveal").hidden = true;
+  closeSecret.focus();
 });
-$("#closeSecret").addEventListener("click", () => { secretModal.hidden = true; });
-secretModal.addEventListener("click", (event) => { if (event.target === secretModal) secretModal.hidden = true; });
+closeSecret.addEventListener("click", closeSecretModal);
+secretModal.addEventListener("click", (event) => { if (event.target === secretModal) closeSecretModal(); });
+document.addEventListener("keydown", (event) => {
+  if (secretModal.hidden) return;
+  if (event.key === "Escape") closeSecretModal();
+  if (event.key === "Tab") {
+    const focusable = secretModal.querySelectorAll("button");
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+});
 $("#oneMoreSecret").addEventListener("click", () => {
   $("#secretReveal").hidden = false;
   $("#oneMoreSecret").textContent = "keep this forever ♡";
@@ -158,7 +181,7 @@ $("#oneMoreSecret").addEventListener("click", () => {
 
 $("#againButton").addEventListener("click", () => {
   loader.classList.remove("done");
-  setTimeout(() => loader.classList.add("done"), 1900);
+  setTimeout(() => loader.classList.add("done"), 1100);
   window.scrollTo({ top: 0, behavior: "smooth" });
   sprinkle(22);
 });
