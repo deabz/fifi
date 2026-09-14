@@ -89,10 +89,21 @@ function setTheme(nightMode) {
   themeToggle.setAttribute("aria-pressed", String(nightMode));
   themeToggle.setAttribute("aria-label", nightMode ? "Switch to soft pink theme" : "Switch to night kitty theme");
   themeToggle.textContent = nightMode ? "☀" : "☾";
-  showToast(nightMode ? "night kitty mode activated ☾" : "soft pink mode restored ♡");
-  localStorage.setItem("fifi-theme", nightMode ? "night" : "soft");
+  if (nightMode) showToast("night kitty mode activated ☾");
+  else showToast("soft pink mode restored ♡");
+  try {
+    localStorage.setItem("fifi-theme", nightMode ? "night" : "soft");
+  } catch (error) {
+    // The theme still works when the browser blocks storage for local files.
+  }
 }
-setTheme(localStorage.getItem("fifi-theme") === "night");
+let savedTheme = "soft";
+try {
+  savedTheme = localStorage.getItem("fifi-theme") || "soft";
+} catch (error) {
+  savedTheme = "soft";
+}
+setTheme(savedTheme === "night");
 themeToggle.addEventListener("click", () => setTheme(!document.body.classList.contains("night-kitty")));
 
 const observer = new IntersectionObserver((entries) => {
