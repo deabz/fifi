@@ -85,6 +85,7 @@ h1, h2 { margin: 16px 0 0; font-family: "Playfair Display", serif; font-weight: 
 .kitty-section::before { content: "\2661  \2726  \2661"; }
 .kitty-card::after { content: "\2726"; }
 .hero-card::before { content: "\2661"; }
+.again-button { display: inline-flex; align-items: center; gap: 11px; min-height: 58px; padding: 9px 19px 9px 10px; color: var(--red); border: 1px solid rgba(255,255,255,.65); background: rgba(255,255,255,.9); box-shadow: 0 12px 26px rgba(92, 22, 53, .18); text-align: left; }.again-button:hover { transform: translateY(-4px); box-shadow: 0 18px 32px rgba(92, 22, 53, .25); }.again-icon { display: grid; place-items: center; width: 37px; height: 37px; border-radius: 50%; color: #fff; background: var(--pink-500); font-size: 1.25rem; }.again-button > span:last-child { display: grid; gap: 1px; }.again-button strong { font-size: .82rem; }.again-button small { color: var(--muted); font-size: .62rem; font-weight: 600; }.night-kitty .again-button { color: #fff; border-color: rgba(255,220,232,.45); background: rgba(66,35,56,.92); }.night-kitty .again-button small { color: #e6bfd0; }
 .pink-power-button { color: #fff; border-color: rgba(255,255,255,.38); background: linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,205,224,.28)); }
 .pink-power-button .button-icon { border-color: rgba(255,255,255,.42); background: rgba(255,255,255,.16); }
 .pink-power-button .button-copy small { color: #ffe5ee; }
