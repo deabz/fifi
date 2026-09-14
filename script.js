@@ -100,14 +100,16 @@ $("#openButton").addEventListener("click", () => {
 $("#morePink").addEventListener("click", () => {
   pinkMode = true;
   document.body.classList.add("extra-pink");
+  $("#morePink").setAttribute("aria-pressed", "true");
   $("#pinkStage").animate([{ transform: "scale(.98)" }, { transform: "scale(1.02)" }, { transform: "scale(1)" }], { duration: 650, easing: "ease-out" });
   sprinkle(45, ["🎀", "✦", "♡", "✿"]);
-  showToast("pink levels increased dramatically 🎀");
+  showToast("hello kitty mode activated 🎀");
 });
 $("#lessPink").addEventListener("click", () => {
   pinkMode = false;
   document.body.classList.remove("extra-pink");
-  showToast("returning to normal pink levels");
+  $("#morePink").setAttribute("aria-pressed", "false");
+  showToast("kitty mode tucked away for now ♡");
 });
 
 document.querySelectorAll(".envelope").forEach((envelope) => {
