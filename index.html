@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6a8c5" />
+  <meta name="description" content="A tiny pink corner of the internet made by Arian for Fifi." />
+  <title>hello fifi 🎀</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-glow"></div>
+    <div class="loader-bow" aria-hidden="true"><span></span><i></i><span></span></div>
+    <p>something made for fifi <span>🎀</span></p>
+    <small>from arian</small>
+    <div class="loader-dots" aria-hidden="true"><b></b><b></b><b></b></div>
+  </div>
+
+  <div class="cursor-sparkle" id="cursorSparkle" aria-hidden="true">✦</div>
+  <div class="falling-layer" id="fallingLayer" aria-hidden="true"></div>
+
+  <main id="mainContent">
+    <nav class="topbar" aria-label="Main navigation">
+      <a class="wordmark" href="#top" aria-label="Back to top">fifi<span>♡</span></a>
+      <div class="nav-links">
+        <a href="#about">about</a>
+        <a href="#corner">pink corner</a>
+        <a href="#messages">messages</a>
+        <a href="#silly">silly stuff</a>
+      </div>
+      <button class="tiny-bow" id="secretBow" aria-label="Secret bow">🎀</button>
+    </nav>
+
+    <section class="hero section-shell" id="top">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> a small internet gift <span class="eyebrow-dot"></span></p>
+        <h1>hello <em>fifi</em> <span class="bow-mark">🎀</span></h1>
+        <p class="hero-subtitle">welcome to your little corner<br class="desktop-only" /> of the internet</p>
+        <p class="hero-note">i made this just for you because why not :)</p>
+        <button class="primary-button" id="openButton">open it <span>🎀</span></button>
+      </div>
+      <div class="hero-art reveal" aria-label="Decorative pink bow illustration">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div>
+        <div class="hero-card">
+          <div class="hero-card-top"><span>FI</span><span>♡</span></div>
+          <div class="big-bow"><span></span><i></i><span></span></div>
+          <p>fifi's<br /><strong>little world</strong></p>
+          <div class="hero-card-stars">✦ ✧ ✦</div>
+        </div>
+        <span class="float-sticker sticker-one">♡</span>
+        <span class="float-sticker sticker-two">✿</span>
+        <span class="float-sticker sticker-three">✦</span>
+      </div>
+      <div class="scroll-cue"><span></span> scroll to explore</div>
+    </section>
+
+    <section class="intro-strip">
+      <div class="section-shell strip-inner">
+        <span class="strip-label">made with care</span>
+        <p>For the laughs, the dramatic moments, the silly jokes, and all the little things that make you <strong>you.</strong></p>
+        <span class="strip-sparkles">✦ ✧ ✦</span>
+      </div>
+    </section>
+
+    <section class="section-shell about-section" id="about">
+      <div class="section-heading reveal">
+        <span class="section-kicker">01 / the fifi file</span>
+        <h2>a little about <em>fifi</em></h2>
+        <p>Some things that are already known, no made-up lore required.</p>
+      </div>
+      <div class="about-grid" id="aboutGrid"></div>
+    </section>
+
+    <section class="corner-section" id="corner">
+      <div class="corner-cloud cloud-left"></div><div class="corner-cloud cloud-right"></div>
+      <div class="section-shell">
+        <div class="corner-heading reveal">
+          <span class="section-kicker light">02 / maximum pink mode</span>
+          <h2>fifi's <em>world</em> 🎀</h2>
+          <p>Basically everything pink. As requested.</p>
+          <div class="button-row">
+            <button class="secondary-button light-button" id="morePink">more pink <span>✦</span></button>
+            <button class="ghost-button" id="lessPink">okay that's enough</button>
+          </div>
+        </div>
+        <div class="pink-stage reveal" id="pinkStage">
+          <span class="stage-sticker stage-bow">🎀</span>
+          <span class="stage-sticker stage-flower">✿</span>
+          <span class="stage-sticker stage-star">✦</span>
+          <div class="pink-sun"></div>
+          <div class="pink-window">
+            <div class="window-bar"><span></span><span></span><span></span></div>
+            <div class="window-content">
+              <span>pink clouds</span><span>pink flowers</span><span>pink sparkles</span>
+              <strong>all the pink<br />you could want</strong>
+            </div>
+          </div>
+          <div class="pink-cloud cloud-a"></div><div class="pink-cloud cloud-b"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell messages-section" id="messages">
+      <div class="section-heading reveal">
+        <span class="section-kicker">03 / open when needed</span>
+        <h2>little <em>messages</em> 🎀</h2>
+        <p>Pick an envelope. There may or may not be a tiny surprise inside.</p>
+      </div>
+      <div class="envelope-grid" id="envelopeGrid"></div>
+    </section>
+
+    <section class="section-shell silly-section" id="silly">
+      <div class="section-heading reveal">
+        <span class="section-kicker">04 / absolutely serious research</span>
+        <h2>fifi's silly little <em>corner</em></h2>
+        <p>For highly important discoveries and zero official statistics.</p>
+      </div>
+      <div class="silly-layout">
+        <div class="silly-menu reveal">
+          <button class="silly-button active" data-panel="compliment"><span>✦</span> compliment me 🎀</button>
+          <button class="silly-button" data-panel="lore"><span>✿</span> fifi lore</button>
+          <button class="silly-button" data-panel="arian"><span>♡</span> what does arian have to say?</button>
+          <button class="chaos-button" id="chaosButton">DO NOT PRESS <span>↗</span></button>
+        </div>
+        <div class="silly-output reveal" id="sillyOutput">
+          <span class="output-label">official result</span>
+          <p id="sillyText">you are effortlessly entertaining, even when you are not trying to be.</p>
+          <span class="output-mark">✦</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="note-section">
+      <div class="section-shell note-wrap reveal">
+        <div class="note-decor">✦<br />🎀</div>
+        <div class="note-card">
+          <span class="section-kicker">05 / from arian</span>
+          <h2>one thing <em>from me</em></h2>
+          <p>i'm genuinely glad i met you. you've become someone who means a lot to me, and i'm grateful for all the laughs, jokes and little moments we've shared. i hope you know how much i appreciate having you in my life.</p>
+          <span class="signature">— arian ♡</span>
+        </div>
+        <div class="note-decor right">✿<br />✧</div>
+      </div>
+    </section>
+
+    <section class="final-section" id="final">
+      <div class="final-cloud final-cloud-one"></div><div class="final-cloud final-cloud-two"></div>
+      <div class="final-stars">✦ &nbsp; ✧ &nbsp; ✦ &nbsp; ✧ &nbsp; ✦</div>
+      <div class="final-content reveal">
+        <div class="final-bow"><span></span><i></i><span></span></div>
+        <p class="section-kicker light">the end, but not really</p>
+        <h2>thanks for visiting your little<br /><em>corner of the internet, fifi</em> 🎀</h2>
+        <p>hope this made you smile</p>
+        <span class="final-signature">— arian ♡</span>
+        <button class="secondary-button light-button" id="againButton">again? <span>↺</span></button>
+      </div>
+      <div class="final-flower flower-one">✿</div><div class="final-flower flower-two">✿</div>
+    </section>
+  </main>
+
+  <aside class="music-player" id="musicPlayer" aria-label="Music player">
+    <div class="music-info">
+      <div class="music-vinyl" aria-hidden="true"><span>♪</span></div>
+      <div><span class="music-label">song for fifi</span><strong>On the Square</strong><small>Mac DeMarco · audio file not installed</small></div>
+    </div>
+    <div class="music-controls">
+      <button id="playButton" class="music-icon" aria-label="Play music" disabled>▶</button>
+      <button id="muteButton" class="music-icon" aria-label="Mute music">⌁</button>
+      <label class="volume-control" aria-label="Volume"><input id="volumeSlider" type="range" min="0" max="1" step="0.05" value="0.45" /></label>
+    </div>
+    <a class="music-link" href="https://www.youtube.com/results?search_query=Mac+DeMarco+On+the+Square" target="_blank" rel="noopener noreferrer">listen online ↗</a>
+    <div class="music-notes" id="musicNotes" aria-hidden="true">♪ ♫</div>
+    <audio id="audio" preload="none" loop src="assets/on-the-square-by-mac-demarco.mp3"></audio>
+  </aside>
+
+  <div class="secret-modal" id="secretModal" role="dialog" aria-modal="true" aria-labelledby="secretTitle" hidden>
+    <div class="secret-box">
+      <button class="modal-close" id="closeSecret" aria-label="Close secret">×</button>
+      <span class="section-kicker">tiny hidden discovery</span>
+      <h2 id="secretTitle">you found the secret 🎀</h2>
+      <p>arian definitely didn't spend way too long making this</p>
+      <button class="primary-button" id="oneMoreSecret">one more secret <span>✦</span></button>
+      <p class="secret-reveal" id="secretReveal" hidden>this website is 87% pink, 12% sparkle, and 1% completely unnecessary but worth it.</p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js?v=5"></script>
+</body>
+</html>
