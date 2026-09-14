@@ -36,6 +36,7 @@ const $ = (selector) => document.querySelector(selector);
 const loader = $("#loader");
 const fallingLayer = $("#fallingLayer");
 const toast = $("#toast");
+const themeToggle = $("#themeToggle");
 let pinkMode = false;
 
 setTimeout(() => loader.classList.add("done"), 1100);
@@ -81,6 +82,14 @@ function sprinkle(count = 18, symbols = ["✦", "♡", "🎀", "✿"]) {
 
 renderAbout();
 renderMessages();
+
+themeToggle.addEventListener("click", () => {
+  const nightMode = document.body.classList.toggle("night-kitty");
+  themeToggle.setAttribute("aria-pressed", String(nightMode));
+  themeToggle.setAttribute("aria-label", nightMode ? "Switch to soft pink theme" : "Switch to night kitty theme");
+  themeToggle.textContent = nightMode ? "☀" : "☾";
+  showToast(nightMode ? "night kitty mode activated ☾" : "soft pink mode restored ♡");
+});
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
