@@ -83,13 +83,17 @@ function sprinkle(count = 18, symbols = ["✦", "♡", "🎀", "✿"]) {
 renderAbout();
 renderMessages();
 
-themeToggle.addEventListener("click", () => {
-  const nightMode = document.body.classList.toggle("night-kitty");
+function setTheme(nightMode) {
+  document.body.classList.toggle("night-kitty", nightMode);
+  document.documentElement.dataset.theme = nightMode ? "night" : "soft";
   themeToggle.setAttribute("aria-pressed", String(nightMode));
   themeToggle.setAttribute("aria-label", nightMode ? "Switch to soft pink theme" : "Switch to night kitty theme");
   themeToggle.textContent = nightMode ? "☀" : "☾";
   showToast(nightMode ? "night kitty mode activated ☾" : "soft pink mode restored ♡");
-});
+  localStorage.setItem("fifi-theme", nightMode ? "night" : "soft");
+}
+setTheme(localStorage.getItem("fifi-theme") === "night");
+themeToggle.addEventListener("click", () => setTheme(!document.body.classList.contains("night-kitty")));
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
