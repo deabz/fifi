@@ -121,6 +121,9 @@ renderMessages();
 const guestbookForm = $("#guestbookForm");
 const guestbookInput = $("#guestbookInput");
 const savedNote = $("#savedNote");
+const guestbookStatus = $("#guestbookStatus");
+const guestbookSubmit = guestbookForm.querySelector('button[type="submit"]');
+const guestbookEndpoint = "https://formspree.io/f/3090986161670193143";
 function displaySavedNote(note) {
   savedNote.textContent = note ? `“${note}” ♡` : "";
   savedNote.hidden = !note;
@@ -130,12 +133,30 @@ try {
 } catch (error) {
   displaySavedNote("");
 }
-guestbookForm.addEventListener("submit", (event) => {
+guestbookForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const note = guestbookInput.value.trim();
   if (!note) {
     showToast("write a tiny note first ♡");
     guestbookInput.focus();
+    return;
+  }
+  guestbookSubmit.disabled = true;
+  guestbookStatus.textContent = "sending your note…";
+  const formData = new FormData();
+  formData.append("message", note);
+  formData.append("_subject", "A new note from Fifi's corner");
+  try {
+    const response = await fetch(guestbookEndpoint, {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" },
+    });
+    if (!response.ok) throw new Error(`Guestbook submission failed: ${response.status}`);
+  } catch (error) {
+    guestbookSubmit.disabled = false;
+    guestbookStatus.textContent = "That note could not be sent. Please try again.";
+    showToast("your note could not be sent ♡");
     return;
   }
   displaySavedNote(note);
@@ -145,7 +166,9 @@ guestbookForm.addEventListener("submit", (event) => {
     // The note still appears for this visit when storage is unavailable.
   }
   guestbookInput.value = "";
-  showToast("your note is pinned 🎀");
+  guestbookSubmit.disabled = false;
+  guestbookStatus.textContent = "Sent! Your note has been delivered by email.";
+  showToast("your note was sent 🎀");
 });
 
 function setTheme(nightMode) {
