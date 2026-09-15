@@ -123,7 +123,7 @@ const guestbookInput = $("#guestbookInput");
 const savedNote = $("#savedNote");
 const guestbookStatus = $("#guestbookStatus");
 const guestbookSubmit = guestbookForm.querySelector('button[type="submit"]');
-const guestbookEndpoint = "https://formspree.io/f/3090986161670193143";
+const guestbookEndpoint = "https://formspree.io/f/xoeqgrvd";
 function displaySavedNote(note) {
   savedNote.textContent = note ? `“${note}” ♡` : "";
   savedNote.hidden = !note;
