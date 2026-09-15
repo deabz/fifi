@@ -90,6 +90,8 @@ h1, h2 { margin: 16px 0 0; font-family: "Playfair Display", serif; font-weight: 
 .pink-power-button .button-icon { border-color: rgba(255,255,255,.42); background: rgba(255,255,255,.16); }
 .pink-power-button .button-copy small { color: #ffe5ee; }
 .night-kitty .pink-power-button { color: #fff; border-color: rgba(255,220,232,.45); background: linear-gradient(135deg, rgba(255,178,206,.2), rgba(255,120,172,.28)); }
+.pink-power-button { overflow: hidden; }
+.pink-power-button::after { pointer-events: none; }
 .kitty-sky span:nth-child(6) { left: 34%; top: 42%; animation-delay: -4s; font-size: 1.5rem; }
 .kitty-sky span:nth-child(7) { left: 93%; top: 86%; animation-delay: -7s; }
 .kitty-sky span:nth-child(8) { left: 4%; top: 58%; animation-delay: -1s; }
